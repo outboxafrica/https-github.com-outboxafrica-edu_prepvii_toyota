@@ -1,0 +1,24 @@
+{
+    "name": "toyota",
+    "version": "1.0.0",
+    "description": "EDU- API TOYOTA",
+    "main": "server.js",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/outboxafrica/edu_prepvii_toyota"
+    },
+    "scripts": {
+     "devstart":"nodemon server.js",
+      "start": "node server.js"
+    },
+    "author":
+     "stella Naiga",
+  
+    "license": "ISC",
+    "dependencies": {
+      "express": "4.17.1",
+      "mongoose":"5,10,2",
+      "nodemon":"^2.0.4"
+    }
+  
+  }
