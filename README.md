@@ -56,13 +56,13 @@ Signs in a single user into the Application.
 
 |**Endpoint**|**Method**|**Params**|**Data-type**|
 |---|---|---|---|
-|/auth/signup|POST|None|None|
+|/register|POST|None|None|
 
 - **Request Body**
 
 ```json
 {
-  "username": "testuser",
+  "name": "testuser",
   "email": "testemail@exampleuser.com",
   "password": "password"
 }
@@ -100,7 +100,7 @@ Logs in a single user in the application.
 
 |**Endpoint**|**Method**|**Params**|**Data-type**|
 |---|---|---|---|
-|/auth/login|POST|None|None|
+|/login|POST|None|None|
 
 - **Request Body**
 
@@ -112,6 +112,14 @@ Logs in a single user in the application.
 ```
 - **Request Headers**
 `x-access-token: xxxxxxxxxxxxxxx`
+
+## Home page
+|**Endpoint**|**Method**|**Params**|**Data-type**|
+|---|---|---|---|
+|`/home`|GET|`None`|string
+
+##Response
+Hello from Toyota
     
 ## Ask a question
 
@@ -145,17 +153,6 @@ Gets all answers to a question in the database.
 ---|---|---|---
 `/questions/<questionId>/answers`|GET|`required`|None
 
-## Delete a question
-
-Deletes a single question from the database.
-
-**Endpoint**|**Method**|**Params**|**Data-type**
----|---|---|---
-`/questions/<questionId>`|DELETE|`required`|None
-
-## Update an answer or mark an answer as accepted
-
-User can edit an answer or select an answer as the preferred answer.
 
 **Endpoint**|**Method**|**Params**|**Data-type**
 ---|---|---|---
