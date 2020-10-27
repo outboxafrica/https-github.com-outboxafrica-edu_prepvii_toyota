@@ -31,5 +31,24 @@ router.post('/', async(req,res)=>{
         }
     })
 
+     //deleting a customer
+     router.delete('/:questionid', async(req, res,) => {
+        try{
+           const removedPost =  await User.deleteOne({_id: req.params.questionid});
+           res.json( removedPost);
+        } catch (err) {
+            res.status(500).send("Unable to save")
+        }
+        });
+
+        //Get specific question
+        router.get('/:questionid', async(req, res,) => {
+            try{
+               const post =  await User.findById({_id: req.params.questionid});
+               res.json(post);
+            } catch (err) {
+                res.status(500).send("Unable to save")
+            }
+            });
 
 module.exports = router;
