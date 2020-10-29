@@ -3,16 +3,16 @@ const User = require('../models/User')
 
 router.post('/', async(req,res)=>{
 
-    const emailExists = await User.findOne({answer: req.body.answer});
-    if(emailExists) return res.status(400).send('Answer already exists');
+    const emailExistt = await User.findOne({answer: req.body.answer});
+    if(emailExistt) return res.status(400).send('Answer already exists');
     
     
     //Create a new answer
         const user = new User({
-            answer:req.body.answer
+        answer:req.body.answer
         });
         try{
-            //Getting the answer and saving
+            //Getting the question and saving
              const savedUser = await user.save();
             res.send(savedUser);
         }catch(err){
@@ -21,7 +21,7 @@ router.post('/', async(req,res)=>{
        
     });
     
-    //Getting an answer
+    //Getting answers
     router.get('/', async (req,res) =>{
         try{
             const answers = await User.find()
@@ -31,24 +31,15 @@ router.post('/', async(req,res)=>{
         }
     })
 
-    //deleting an answer
-    router.delete('/:answerid', async(req, res,) => {
+    //deleting a customer
+    router.delete('/', async(req, res,) => {
         try{
-           const removedPost =  await User.deleteOne({_id: req.params.answerid});
+           const removedPost =  await User.deleteOne({_id: req.params.answer});
            res.json( removedPost);
         } catch (err) {
             res.status(500).send("Unable to save")
         }
         });
+    
 
-        //Get specific answer
-        router.get('/:answerid', async(req, res,) => {
-            try{
-               const post =  await User.findById({_id: req.params.answerid});
-               res.json(post);
-            } catch (err) {
-                res.status(500).send("Unable to save")
-            }
-            });
-
-module.exports = router ;
+module.exports = router;
